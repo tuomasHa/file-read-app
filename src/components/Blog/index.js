@@ -36,16 +36,37 @@ module.exports = class Blog extends React.Component{
         }
       });
       //Ei toimi!!!
-      articles.map((e) => {
+      /*articles.map((e) => {
         fetch(e.path).then((response) => {
           return response.text();
         }).then((markdown) => {
           e.content = {__html: Marked(markdown)};
           console.log(a)
         });
+      });*/
+      let ArticlesDone = new Promise ((aResolve, aReject) => {
+        let promiseCount = articles.length;
+        let articlePromises = articles.map((e) => {
+          let promise = new Promise((resolve, reject) => {
+            fetch(e.path).then((response) => {
+              return response.text();
+            }).then((markdown) => {
+              e.content = {__html: Marked(markdown)};
+              resolve();
+            });
+          });
+          promise.then(() => {
+            promiseCount--;
+            if(promiseCount === 0){
+              aResolve();
+            }
+          });
+          return promise;
+        });
+      }).then(() => {
+        console.log(articles)
+        this.setState({articles: articles});
       });
-      console.log(articles)
-      this.setState({articles: articles});
     }
     else return;
   }
