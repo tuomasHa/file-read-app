@@ -1,0 +1,5 @@
+# Placeholder article #
+
+Blog articles and gallery images are displayed in reverse alphabetical order. The following format is recommended for naming these files: 'yyyy-mm-dd-[ordering index]'. The ordering index determines the displaying order of the files of the same date with the file having the highest index being displayed first.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare libero vel velit sagittis porttitor vitae at quam. *Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi vel orci lectus.* Nunc in eros purus. Donec nec arcu faucibus arcu placerat molestie. Donec ac tortor laoreet leo sollicitudin aliquam. **Phasellus aliquet odio vitae facilisis sollicitudin.** Aliquam erat volutpat. Nam at bibendum augue. Sed iaculis luctus varius. Nullam hendrerit sem a sagittis egestas. ***Integer quis egestas arcu. Donec est nulla, tristique eu enim a, posuere vestibulum urna.*** Suspendisse diam purus, hendrerit pharetra iaculis a, ultrices eu augue. Vestibulum semper, erat ac tincidunt ullamcorper, dolor lorem commodo magna, a vulputate diam urna ut lorem.
