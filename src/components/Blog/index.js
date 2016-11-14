@@ -35,15 +35,6 @@ module.exports = class Blog extends React.Component{
           articles.push({name: e.name, path: e.path});
         }
       });
-      //Ei toimi!!!
-      /*articles.map((e) => {
-        fetch(e.path).then((response) => {
-          return response.text();
-        }).then((markdown) => {
-          e.content = {__html: Marked(markdown)};
-          console.log(a)
-        });
-      });*/
       let ArticlesDone = new Promise ((aResolve, aReject) => {
         let promiseCount = articles.length;
         let articlePromises = articles.map((e) => {
