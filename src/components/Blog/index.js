@@ -16,7 +16,6 @@ module.exports = class Blog extends React.Component{
         return response.json();
       }).then((obj) => {
         this.parseArticlePaths(obj);
-        console.log(this.state.articles)
       });
   }
 
@@ -55,7 +54,6 @@ module.exports = class Blog extends React.Component{
           return promise;
         });
       }).then(() => {
-        console.log(articles)
         this.setState({articles: articles});
       });
     }
