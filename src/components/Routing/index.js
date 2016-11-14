@@ -1,13 +1,13 @@
 import React from 'react';
 import {Router, Route, indexRoute, hashHistory} from 'react-router';
-import Navigation from '../Navigation';
+import App from '../App';
 import Home from '../Home';
 import Gallery from '../Gallery';
 import Blog from '../Blog';
 
 const routes = {
   path: '/',
-  component: Navigation,
+  component: App,
   indexRoute: { component: Home },
   childRoutes: [
     { path: 'gallery', component: Gallery },
@@ -16,7 +16,7 @@ const routes = {
 };
 
 export default () => {
-    return <div className='pages'>
+    return <div className='app-frame'>
       <Router routes={routes} history={hashHistory} />
     </div>;
 }
