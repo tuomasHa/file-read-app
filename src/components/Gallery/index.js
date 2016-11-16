@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from './Image';
-require('./style.css');
+require('./style.scss');
 
 const renderImage = (e, i) =>{
   return <Image index={i} image={e} key={`image-${i}`}/>;

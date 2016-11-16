@@ -1,7 +1,7 @@
 import React from 'react';
 import Article from './Article';
 import Marked from 'marked';
-require('./style.css');
+require('./style.scss');
 
 const renderArticle = (e, i) =>{
   return <Article index={i} article={e} key={`article-${i}`}/>;

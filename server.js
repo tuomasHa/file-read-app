@@ -23,6 +23,10 @@ app.get('/script', function(req, res){
     res.sendFile('build/bundle.js', {root: __dirname});
 });
 
+app.get('/style', function(req, res){
+    res.sendFile('build/bundle.css', {root: __dirname});
+});
+
 app.get('/images', function(req, res){
     res.send(images.getImages());
 });
