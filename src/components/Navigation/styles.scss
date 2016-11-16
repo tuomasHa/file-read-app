@@ -1,0 +1,25 @@
+.navigation{
+  height: $navigation-height;
+  background-color: $navigation-bg-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  margin: 0;
+  padding: 0 30px;
+
+  li{
+    float: left;
+    clear:none;
+    list-style: none;
+
+    a{
+      display: block;
+      color: $navigation-font-color;
+      text-decoration: none;
+      height: ($navigation-height - 10px);
+      padding: 5px 10px;
+    }
+  }
+}

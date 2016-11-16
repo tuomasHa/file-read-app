@@ -1,0 +1,11 @@
+body{
+  margin: 0;
+}
+
+.app-frame{
+  padding-top: $navigation-height;
+  
+  .app{
+    margin: 0 30px;
+  }
+}
