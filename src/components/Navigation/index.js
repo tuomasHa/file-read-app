@@ -11,8 +11,9 @@ module.exports = class Navigation extends React.Component{
 
   render(){
     return <ul className='navigation'>
-        <li><Link to='/gallery'>Gallery</Link></li>
+        <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/gallery'>Gallery</Link></li>
       </ul>;
   }
 }
