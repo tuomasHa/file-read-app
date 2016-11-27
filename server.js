@@ -27,6 +27,10 @@ app.get('/style', function(req, res){
     res.sendFile('build/bundle.css', {root: __dirname});
 });
 
+app.get('/res/:folder/:file', function(req, res){
+  res.sendFile('res/' + req.params.folder + '/' + req.params.file, {root: __dirname});
+});
+
 app.get('/images', function(req, res){
     res.send(images.getImages());
 });

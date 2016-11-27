@@ -21,6 +21,10 @@ http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pu
     max-height: 100%;
     padding: 5px;
     box-sizing: border-box;
+
+    &:hover, &:active{
+      cursor: pointer;
+    }
   }
 }
 

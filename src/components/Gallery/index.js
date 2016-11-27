@@ -1,15 +1,43 @@
 import React from 'react';
 import Image from './Image';
+import TopModal from '../TopModal';
 require('./style.scss');
 
-const renderImage = (e, i) =>{
-  return <Image index={i} image={e} key={`image-${i}`}/>;
+const renderImage = (e, i, handler) =>{
+  return <Image index={i} image={e} key={`image-${i}`} selectImage={handler}/>;
 }
 
-module.exports = class Gallery extends React.Component{
+export default class Gallery extends React.Component{
   constructor(props){
     super(props);
-    this.state = {images: []};
+    this.state = {
+      images: [],
+      modalIndex: 0,
+      modalOpen: false
+    };
+
+    this.openModal = (index) => {
+      this.setState({
+        modalIndex: index,
+        modalOpen: true
+      });
+    };
+
+    this.prevImage = () => {
+      if(this.state.modalIndex > 0){
+        this.setState({
+          modalIndex: this.state.modalIndex - 1
+        });
+      }
+    };
+
+    this.nextImage = () => {
+      if(this.state.modalIndex < this.state.images.length -1){
+        this.setState({
+          modalIndex: this.state.modalIndex + 1
+        });
+      }
+    };
 
     fetch('images').then((response) => {
         return response.json();
@@ -20,7 +48,10 @@ module.exports = class Gallery extends React.Component{
 
   render(){
     return <div className='gallery'>
-        { this.state.images.map((e, i) => renderImage(e, i)) }
+      <TopModal open={this.state.modalOpen}
+      image={this.getModalImage()} leftFunc={this.prevImage}
+      rightFunc={this.nextImage}/>
+        { this.state.images.map((e, i) => renderImage(e, i, this.openModal)) }
       </div>;
   }
 
@@ -36,5 +67,9 @@ module.exports = class Gallery extends React.Component{
       this.setState({images: images});
     }
     else return;
+  }
+
+  getModalImage() {
+    return this.state.images[this.state.modalIndex] || {name: '', path: ''};
   }
 }
