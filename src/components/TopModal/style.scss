@@ -1,5 +1,4 @@
 .top-modal{
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,8 +8,22 @@
   overflow: auto;
   background-color: $modal-shadow-color;
 
-  &.modal-open{
-    display: block;
+  &.fade-enter{
+    opacity: 0;
+
+    &.fade-enter-active{
+      opacity: 1;
+      @include transition(fade-in, 0.5s);
+    }
+  }
+
+  &.fade-leave{
+    opacity: 1;
+
+    &.fade-leave-active{
+      opacity: 0;
+      @include transition(fade-out, 0.5s);
+    }
   }
 
   .modal-frame{
@@ -33,10 +46,12 @@
         height: 32px;
         background-image: url($image-path + 'close.png');
         background-size: cover;
-        opacity: 0.3;
+        opacity: $animation-partial-opacity;
+        @include transition(partial-fade-out, 0.3s);
 
         &:hover, &:focus{
           opacity: 1;
+          @include transition(partial-fade-in, 0.3s);
           cursor: pointer;
         }
       }
@@ -47,9 +62,31 @@
 
       .modal-image{
         position: relative;
+        overflow: hidden;
 
         img{
           width: 100%;
+
+          &.fade-enter{
+            opacity: 0;
+
+            &.fade-enter-active{
+              opacity: 1;
+              @include transition(fade-in, 0.3s);
+            }
+          }
+
+          &.fade-leave{
+            opacity: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &.fade-leave-active{
+              opacity: 0;
+              @include transition(fade-out, 0.3s);
+            }
+          }
         }
 
         .modal-image-control{
@@ -59,7 +96,8 @@
           height: 100%;
           background-repeat: no-repeat;
           background-size: 50px;
-          opacity: 0.3;
+          opacity: $animation-partial-opacity;
+          @include transition(partial-fade-out, 0.3s);
 
           &.modal-image-left{
             left: 0;
@@ -75,6 +113,8 @@
 
           &:hover, &:active{
             opacity: 1;
+            @include transition(partial-fade-in, 0.3s);
+            cursor: pointer;
           }
         }
       }

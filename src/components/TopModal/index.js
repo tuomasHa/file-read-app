@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import ModalImage from './ModalImage'
 require('./style.scss');
 
@@ -18,8 +19,17 @@ export default class TopModal extends React.Component{
   }
 
   render(){
-    return <div className={'top-modal ' + (this.state.open ? 'modal-open' : 'modal-closed')}
-      onClick={this.closeModal}>
+    return <ReactCSSTransitionGroup
+      transitionName='fade'
+      transitionEnterTimeout={500}
+      transitionLeaveTimeout={500}>
+          {this.renderModal()}
+    </ReactCSSTransitionGroup>;
+  }
+
+  renderModal(){
+    return this.state.open ?
+      <div className='top-modal' onClick={this.closeModal}  key={this.props.modalKey}>
         <div className='modal-frame'>
           <div className='modal-header'>
             <span className='modal-close' onClick={this.closeModal} />
@@ -29,7 +39,8 @@ export default class TopModal extends React.Component{
             rightFunc={this.props.rightFunc} />
           </div>
         </div>
-      </div>;
+      </div> :
+      <div/>;
   }
 
   componentWillReceiveProps(newProps){

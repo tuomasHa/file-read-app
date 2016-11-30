@@ -28,6 +28,10 @@ export default class Gallery extends React.Component{
         this.setState({
           modalIndex: this.state.modalIndex - 1
         });
+      } else {
+        this.setState({
+          modalIndex: this.state.images.length - 1
+        });
       }
     };
 
@@ -35,6 +39,10 @@ export default class Gallery extends React.Component{
       if(this.state.modalIndex < this.state.images.length -1){
         this.setState({
           modalIndex: this.state.modalIndex + 1
+        });
+      } else{
+        this.setState({
+          modalIndex: 0
         });
       }
     };
@@ -48,7 +56,7 @@ export default class Gallery extends React.Component{
 
   render(){
     return <div className='gallery'>
-      <TopModal open={this.state.modalOpen}
+      <TopModal open={this.state.modalOpen} modalKey='gallery-modal'
       image={this.getModalImage()} leftFunc={this.prevImage}
       rightFunc={this.nextImage}/>
         { this.state.images.map((e, i) => renderImage(e, i, this.openModal)) }

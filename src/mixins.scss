@@ -1,0 +1,28 @@
+/*
+  Create mixins here
+*/
+
+//Animation mixins
+
+@mixin transition($name, $duration) {
+  -webkit-transition-name: $name;
+  -webkit-transition-duration: $duration;
+   -moz-transition-name: $name;
+   -moz-transition-duration: $duration;
+    transition-name: $name;
+    transition-duration: $duration;
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+//End animation mixins
