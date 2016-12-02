@@ -2,12 +2,14 @@ var express = require('express');
 
 var images = require('./images');
 var articles = require('./articles');
+var pages = require('./pages');
 
 var app = express(),
 server, host, port;
 
 images.init();
 articles.init();
+pages.init();
 
 
 //Express server
@@ -37,6 +39,10 @@ app.get('/images', function(req, res){
 
 app.get('/articles', function(req, res){
     res.send(articles.getArticles());
+});
+
+app.get('/pages', function(req, res){
+    res.send(pages.getPages());
 });
 
 server = app.listen(8081, function () {
