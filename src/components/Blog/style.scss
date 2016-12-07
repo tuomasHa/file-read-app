@@ -1,3 +1,13 @@
 .blog-article{
-  background-color: #EEEEEE;
+  background-color: $blog-bg-color;
+  padding: 10px;
+  border-bottom: 1px solid $blog-border-color;
+  -webkit-border-image: -webkit-linear-gradient(left, transparent, $blog-border-color, transparent) 100% 1;
+  -moz-border-image: -moz-linear-gradient(left, transparent, $blog-border-color, transparent) 100% 1;    
+  -o-border-image: -o-linear-gradient(left, transparent, $blog-border-color, transparent) 100% 1;
+  border-image: linear-gradient(to left, transparent, $blog-border-color, transparent) 100% 1;
+    
+  &:last-child{
+    border-bottom: 0;
+  }
 }
