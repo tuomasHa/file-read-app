@@ -1,7 +1,3 @@
-/*
-  Create mixins here
-*/
-
 //Animation mixins
 
 @mixin transition($name, $duration) {
@@ -24,5 +20,3 @@
         @content;
     }
 }
-
-//End animation mixins

@@ -1,0 +1,35 @@
+/*
+Color palette:
+#003399 rgb(0, 51, 153)
+#6699FF rgb(102, 153, 255)
+#FFFFFF rgb(255, 255, 255)
+#3366CC rgb(51, 102, 204)
+Color combo can be found here:
+http://www.colorcombos.com/color-schemes/23/ColorCombo23.html
+*/
+
+//Paths
+$image-path: 'res/img/';
+
+//Body
+$body-bg-color: #FFFFFF;
+$body-fg-color: rgba(102, 153, 255, 0.1);
+
+//Navigation
+$navigation-bg-color: #003399;
+$navigation-font-color: #FFFFFF;
+$navigation-height: 30px;
+
+//Modal
+$modal-shadow-color: rgba(0, 0, 0, 0.4);
+$modal-bg-color: #FFFFFF;
+$modal-border-color: #3366CC;
+
+//Blog
+$blog-bg-color: #FFFFFF;
+$blog-border-color: #3366CC;
+
+//Content
+$h1-margin-top-and-bottom: 20px;
+$h1-margin-left-and-right: 0;
+$h1-margin: $h1-margin-top-and-bottom $h1-margin-left-and-right;

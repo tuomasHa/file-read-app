@@ -1,16 +1,9 @@
-body{
-  margin: 0;
-
-  > div {
-    background-color: $body-bg-color;
-  }
-}
-
 .app-frame{
   min-height: 100vh;
   margin: 0 30px;
 
   .app{
+    position: relative;
     padding-top: $navigation-height;
   }
 }
