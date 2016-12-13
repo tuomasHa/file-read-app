@@ -34,7 +34,7 @@ module.exports = class Blog extends React.Component{
           articles.push({name: e.name, path: e.path});
         }
       });
-      let ArticlesDone = new Promise ((aResolve, aReject) => {
+      let articlesDone = new Promise ((aResolve, aReject) => {
         let promiseCount = articles.length;
         let articlePromises = articles.map((e) => {
           let promise = new Promise((resolve, reject) => {

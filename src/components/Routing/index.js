@@ -4,14 +4,16 @@ import App from '../App';
 import Home from '../Home';
 import Gallery from '../Gallery';
 import Blog from '../Blog';
+import Page from '../Page';
 
 const routes = {
   path: '/',
   component: App,
-  indexRoute: { component: Home },
+  indexRoute: { onEnter: (nextState, replace) => replace('/page/home') },
   childRoutes: [
     { path: 'gallery', component: Gallery },
     { path: 'blog', component: Blog },
+    { path: 'page/:name', component: Page }
   ]
 };
 

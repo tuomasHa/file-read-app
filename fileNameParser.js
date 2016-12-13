@@ -1,5 +1,5 @@
 (function(){
-  module.exports = (folder, tree, path) => {
+  module.exports = (folder, tree, path, asc) => {
     if(tree.name && tree.children && tree.children.length){
       //add new folder
       folder.name = tree.name;
@@ -14,12 +14,12 @@
           child.path = path + '/' + e.name;
         folder.children.push(child);
       })
-      //make sure images are alphabetically ordered (desc)
+      //Order alpabetically (default desc)
       folder.children.sort((a, b) => {
         let x = a.name.toLowerCase();
         let y = b.name.toLowerCase();
-        if(x > y) return -1;
-        if(x < y) return 1;
+        if(x > y) return asc ? 1 : -1;
+        if(x < y) return asc ? -1 : 1;
         return 0;
       });
     }

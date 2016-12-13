@@ -43,5 +43,5 @@ filteredTree;
 parsePageTree = () =>{
   //tree = dirTree('./files');
   let tree = dirTree(pagesRelPath, ['.md']);
-  fileNameParser(pages, tree, pagesPath);
+  fileNameParser(pages, tree, pagesPath, true); //Ascending order
 }

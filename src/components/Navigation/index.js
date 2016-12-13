@@ -1,17 +1,33 @@
 import React from 'react';
 import {Link} from 'react-router';
+import parsePagePaths from '../../utility/parsePagePaths';
 require('./styles.scss');
 
-module.exports = class Navigation extends React.Component{
+const renderLink = (e, i) =>{
+  return <li key={`link-${i}`}><Link to={'/page/' + e.name}>{formatLinkName(e.name)}</Link></li>;
+}
+
+const formatLinkName = (name) =>{
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
+
+export default class Navigation extends React.Component{
   constructor(props){
     super(props);
 
-    //do other stuff
+    this.state = {pages: []};
+
+    fetch('pages').then((response) => {
+        return response.json();
+      }).then((obj) => {
+        let pages = parsePagePaths(obj);
+        this.setState({pages: pages});
+      });
   }
 
   render(){
     return <ul className='navigation'>
-        <li><Link to='/'>Home</Link></li>
+        { this.state.pages.map((e, i) => renderLink(e, i)) }
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/gallery'>Gallery</Link></li>
       </ul>;
