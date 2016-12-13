@@ -13,7 +13,7 @@ export default class TopModal extends React.Component{
 
       //if this handler is attached to the clicked element, not it's child
       if(e.target == e.currentTarget){
-        this.setState({open: false});
+        this.props.closeModal();
       }
     };
   }

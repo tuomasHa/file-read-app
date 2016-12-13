@@ -1,0 +1,29 @@
+.page-animation-container{
+
+  > *{
+    &.page-fade-enter{
+      opacity: 0;
+
+      &.page-fade-enter-active{
+        opacity: 1;
+        @include transition(fade-in, 0.3s);
+      }
+    }
+
+    &.page-fade-leave{
+      opacity: 1;
+      position: absolute;
+      top: $navigation-height - $h1-margin-top-and-bottom;
+      left: 0;
+
+      &.page-fade-leave-active{
+        opacity: 0;
+        @include transition(fade-out, 0.3s);
+      }
+    }
+  }
+}
+
+.page-container{
+  margin: 20px 0;
+}

@@ -23,6 +23,12 @@ export default class Gallery extends React.Component{
       });
     };
 
+    this.closeModal = () => {
+      this.setState({
+        modalOpen: false
+      });
+    };
+
     this.prevImage = () => {
       if(this.state.modalIndex > 0){
         this.setState({
@@ -58,7 +64,7 @@ export default class Gallery extends React.Component{
     return <div className='gallery'>
       <TopModal open={this.state.modalOpen} modalKey='gallery-modal'
       image={this.getModalImage()} leftFunc={this.prevImage}
-      rightFunc={this.nextImage}/>
+      rightFunc={this.nextImage} closeModal={this.closeModal}/>
         { this.state.images.map((e, i) => renderImage(e, i, this.openModal)) }
       </div>;
   }

@@ -11,9 +11,8 @@ const routes = {
   component: App,
   indexRoute: { onEnter: (nextState, replace) => replace('/page/home') },
   childRoutes: [
-    { path: 'gallery', component: Gallery },
-    { path: 'blog', component: Blog },
-    { path: 'page/:name', component: Page }
+    { path: ':type', component: Page },
+    { path: ':type/:name', component: Page }
   ]
 };
 
