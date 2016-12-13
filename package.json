@@ -4,7 +4,7 @@
   "description": "Testing node file system utilities",
   "main": "server.js",
   "scripts": {
-    "build": "babel src -d build/lib --copy-files && browserify -p [ bundlify-scss -o ./build/bundle.scss ] build/lib/entry.js -o build/bundle.js && npm-sass ./build/bundle.scss > ./build/bundle.css"
+    "build": "babel front-end/src -d build/lib --copy-files && browserify -p [ bundlify-scss -o ./build/bundle.scss ] build/lib/entry.js -o build/bundle.js && npm-sass ./build/bundle.scss > ./build/bundle.css"
   },
   "author": "",
   "license": "ISC",

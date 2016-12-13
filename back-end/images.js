@@ -43,5 +43,6 @@ filteredTree;
 parseTree = () =>{
   //tree = dirTree('./files');
   let tree = dirTree(imagesRelPath, ['.jpg', '.png']);
+  console.log(tree)
   fileNameParser(images, tree, imagesPath);
 }
