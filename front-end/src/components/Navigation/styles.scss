@@ -8,6 +8,8 @@
   z-index: 100;
   margin: 0;
   padding: 0 30px;
+  font-family: $navigation-font;
+  font-size: $navigation-font-size;
 
   li{
     float: left;
@@ -16,10 +18,11 @@
 
     a{
       display: block;
+      box-sizing: border-box;
       color: $navigation-font-color;
       text-decoration: none;
-      height: ($navigation-height - 10px);
-      padding: 5px 10px;
+      height: $navigation-height;
+      padding: $navigation-link-padding;
     }
   }
 }

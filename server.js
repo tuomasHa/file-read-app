@@ -33,6 +33,10 @@ app.get('/res/:folder/:file', function(req, res){
   res.sendFile('front-end/res/' + req.params.folder + '/' + req.params.file, {root: __dirname});
 });
 
+app.get('/fonts/:folder/:file', function(req, res){
+  res.sendFile('front-end/res/fonts/' + req.params.folder + '/' + req.params.file, {root: __dirname});
+});
+
 app.get('/images', function(req, res){
     res.send(images.getImages());
 });

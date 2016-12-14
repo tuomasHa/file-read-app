@@ -10,6 +10,13 @@ http://www.colorcombos.com/color-schemes/23/ColorCombo23.html
 
 //Paths
 $image-path: 'res/img/';
+$font-path: '/fonts/';
+
+//Fonts
+$navigation-font-file-path: $font-path + 'rajdhani/Rajdhani-Medium.ttf';
+$navigation-font-file-format: 'truetype';
+$navigation-font-name: 'RajdhaniMedium';
+$navigation-font: $navigation-font-name, sans-serif;
 
 //Body
 $body-bg-color: #FFFFFF;
@@ -18,7 +25,13 @@ $body-fg-color: rgba(102, 153, 255, 0.1);
 //Navigation
 $navigation-bg-color: #003399;
 $navigation-font-color: #FFFFFF;
-$navigation-height: 30px;
+$navigation-height: 50px;
+$navigation-font-size: 20px;
+$navigation-link-padding-top-and-bottom:
+  ($navigation-height - $navigation-font-size) / 2;
+$navigation-link-padding-left-and-right: 10px;
+$navigation-link-padding:
+  $navigation-link-padding-top-and-bottom $navigation-link-padding-left-and-right;
 
 //Modal
 $modal-shadow-color: rgba(0, 0, 0, 0.4);
