@@ -1,4 +1,5 @@
-@font-face{
-  font-family: $navigation-font-name;
-  src: url($navigation-font-file-path) format($navigation-font-file-format);
-}
+@include font($navigation-font-name, $navigation-font-file-path,
+ $navigation-font-file-format);
+
+ @include font($banner-font-name, $banner-font-file-path,
+  $banner-font-file-format);

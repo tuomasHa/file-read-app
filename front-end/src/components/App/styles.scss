@@ -4,6 +4,6 @@
 
   .app{
     position: relative;
-    padding-top: $navigation-height;
+    padding-top: $banner-height + $navigation-height;
   }
 }

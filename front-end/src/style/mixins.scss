@@ -20,3 +20,10 @@
         @content;
     }
 }
+
+@mixin font($name, $path, $format) {
+  @font-face{
+    font-family: $name;
+    src: url($path) format($format);
+  }
+}

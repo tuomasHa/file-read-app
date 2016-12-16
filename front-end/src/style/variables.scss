@@ -11,16 +11,27 @@ http://www.colorcombos.com/color-schemes/23/ColorCombo23.html
 //Paths
 $image-path: 'res/img/';
 $font-path: '/fonts/';
+$logo-path: 'logo.png';
 
 //Fonts
 $navigation-font-file-path: $font-path + 'rajdhani/Rajdhani-Medium.ttf';
 $navigation-font-file-format: 'truetype';
 $navigation-font-name: 'RajdhaniMedium';
 $navigation-font: $navigation-font-name, sans-serif;
+$banner-font-file-path: $font-path + 'rajdhani/Rajdhani-Bold.ttf';
+$banner-font-file-format: 'truetype';
+$banner-font-name: 'RajdhaniBold';
+$banner-font: $banner-font-name, sans-serif;
 
 //Body
 $body-bg-color: #FFFFFF;
 $body-fg-color: rgba(102, 153, 255, 0.1);
+
+//Banner
+$banner-height: 120px;
+$banner-image-width: 120px;
+$banner-color-1: #CCCCCC; //should match logo
+$banner-color-2: #6699FF;
 
 //Navigation
 $navigation-bg-color: #003399;

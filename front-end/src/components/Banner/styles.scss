@@ -1,0 +1,41 @@
+.header-banner{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $banner-height;
+
+  .header-banner-logo{
+    position: absolute;;
+    left: 30px;
+    top: 0;
+    width: $banner-image-width;
+    height: $banner-height;
+    background-image: url($logo-path);
+    background-size: cover;
+  }
+
+  .header-banner-text{
+    display: block;
+    box-sizing: border-box;
+    height: $banner-height;
+    background-color: gray;
+    width: 100%;
+    padding: 25px 30px;
+    padding-left: $banner-image-width + 80px;
+    font-size: $banner-height - 50px;
+    font-family: $banner-font;
+    background-image:
+    -webkit-linear-gradient(right, $banner-color-1, $banner-color-1,
+     $banner-color-2, $banner-color-2, $banner-color-2);
+    background-image:
+    -moz-linear-gradient(right, $banner-color-1, $banner-color-1,
+    $banner-color-2, $banner-color-2, $banner-color-2);
+    background-image:
+    -o-linear-gradient(right, $banner-color-1, $banner-color-1,
+     $banner-color-2);
+    background-image:
+    linear-gradient(to right, $banner-color-1, $banner-color-1,
+     $banner-color-2, $banner-color-2, $banner-color-2);
+  }
+}
