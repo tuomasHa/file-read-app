@@ -13,15 +13,13 @@ filteredTree;
 
       init: () =>{
         parseArticleTree();
-        console.log(articles);
 
         //recursive-option only works on windows and osx
         fs.watch(articlesRelPath, {recursive: true}, (eventType, filename) =>{
           if(filename){
-            console.log('Article ' + filename + ' changed');
+            console.log('Articles: File ' + filename + ' changed');
             parseArticleTree();
-            console.log(articles);
-          }
+          } //TODO: else deal with error
         });
       },
 

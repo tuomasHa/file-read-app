@@ -13,21 +13,18 @@ filteredTree;
 
       init: () =>{
         parsePageTree();
-        console.log(pages);
 
         //recursive-option only works on windows and osx
         fs.watch(pagesRelPath, {recursive: true}, (eventType, filename) =>{
           if(filename){
-            console.log('Page ' + filename + ' changed');
+            console.log('Pages: File ' + filename + ' changed');
             parsePageTree();
-            console.log(pages);
-          }
+          } //TODO: else deal with error
         });
       },
 
       updateTree: () =>{
         parsePageTree();
-        console.log(pages);
       },
 
       getPages: () =>{

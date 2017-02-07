@@ -1,5 +1,5 @@
 (function(){
-  module.exports = (folder, tree, path, asc) => {
+  let parseFileNames = (folder, tree, path, asc, allowSubfolders) => {
     if(tree.name && tree.children && tree.children.length){
       //add new folder
       folder.name = tree.name;
@@ -7,9 +7,10 @@
       folder.children = [];
       tree.children.forEach((e)=>{
         let child = {};
-        //is element a folder
-        e.children ?
-          parseFileNames(child, e.children) :
+        //are subfolders allowed and is the element a non-empty folder
+        allowSubfolders && e.children && e.children.length ?
+          //allow max 1 level of subfolders
+          parseFileNames(child, e, path + '/' + e.name, asc, false) :
           child.name = e.name,
           child.path = path + '/' + e.name;
         folder.children.push(child);
@@ -22,9 +23,11 @@
         if(x < y) return asc ? -1 : 1;
         return 0;
       });
+      console.log(folder)
     }
     else{
       return;
     }
   };
+  module.exports = parseFileNames;
 }());

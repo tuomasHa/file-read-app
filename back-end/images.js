@@ -13,21 +13,16 @@ filteredTree;
 
       init: () =>{
         parseTree();
-        console.log(images);
-
-        //recursive-option only works on windows and osx
-        fs.watch(imagesRelPath, {recursive: true}, (eventType, filename) =>{
+        fs.watch(imagesRelPath, (eventType, filename) =>{
           if(filename){
-            console.log('Image ' + filename + ' changed');
+            console.log('Images: File ' + filename + ' changed');
             parseTree();
-            console.log(images);
-          }
+          } //TODO: else deal with error
         });
       },
 
       updateTree: () =>{
         parseTree();
-        console.log(images);
       },
 
       getImages: () =>{
@@ -41,8 +36,7 @@ filteredTree;
 }());
 
 parseTree = () =>{
-  //tree = dirTree('./files');
-  let tree = dirTree(imagesRelPath, ['.jpg', '.png']);
-  console.log(tree)
-  fileNameParser(images, tree, imagesPath);
+  let tree = dirTree(imagesRelPath, ['.jpg', '.png', '.gif', '.md']);
+  //descending order, allow subfolders
+  fileNameParser(images, tree, imagesPath, false, true);
 }
