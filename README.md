@@ -2,8 +2,7 @@
 ### Description
 This is a simple JavaScript based CDA (content delivery application) using NodeJS and React. The application features publishing of subpages, articles, and images with simple server-side content management.
 ### Requirements
-Running the application requires NodeJS version 6.9.2+ due to using ES6 features. You might also need to install 
-browserify by running `npm install -g browserify`.
+Running the application requires NodeJS version 6.9.2+ due to using ES6 features.
 ### Getting started
 Navigate to the project's root directory in your terminal. Run `npm install` to install the dependencies defined in  `package.json`. Compile the frontend files by running `npm run build`. Then start the server by running `node server.js` in the root directory.
 ### Content Management
