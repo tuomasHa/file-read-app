@@ -36,7 +36,7 @@ filteredTree;
 }());
 
 parseTree = () =>{
-  let tree = dirTree(imagesRelPath, ['.jpg', '.png', '.gif', '.md']);
+  let tree = dirTree(imagesRelPath, ['.jpg', '.png', '.gif', '.json']);
   //descending order, allow subfolders
   fileNameParser(images, tree, imagesPath, false, true);
 }
