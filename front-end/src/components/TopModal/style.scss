@@ -30,9 +30,13 @@
     border-bottom: 3px solid $modal-border-color;
     border-radius: 3px;
     background-color: $modal-bg-color;
-    margin: 20% auto;
     padding: 20px;
     width: 80%;
+    height: 80%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 10%;
+    left: 10%;
 
     .modal-header{
       position: relative;
@@ -59,13 +63,19 @@
 
     .modal-content{
       width: 100%;
+      height: 100%;
 
-      .modal-image{
+      .modal-image-frame{
         position: relative;
         overflow: hidden;
+        height: 100%;
 
-        img{
+        .modal-image{
           width: 100%;
+          height: 100%;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
 
           &.fade-enter{
             opacity: 0;

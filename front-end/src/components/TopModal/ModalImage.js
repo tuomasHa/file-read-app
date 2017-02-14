@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+const imageStyle = (imagePath) => {
+  return { backgroundImage: 'url(' + imagePath + ')'};
+}
+
 export default class ModalImage extends React.Component{
   constructor(props){
     super(props);
   }
 
   render(){
-    return <div className='modal-image'>
+    return <div className='modal-image-frame'>
       <ReactCSSTransitionGroup
       transitionName='fade'
       transitionEnterTimeout={300}
@@ -16,8 +20,9 @@ export default class ModalImage extends React.Component{
         onClick={this.props.leftFunc} />
         <span className='modal-image-control modal-image-right'
         onClick={this.props.rightFunc} />
-        <img key={'modal-image-' + this.props.image.name}
-        src={this.props.image.path} alt={this.props.image.name} />
+        <div key={'modal-image-' + this.props.image.name}
+        className='modal-image'
+        style={imageStyle(this.props.image.path)}/>
       </ReactCSSTransitionGroup>
     </div>;
   }
