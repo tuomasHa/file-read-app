@@ -7,6 +7,21 @@ http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pu
   margin: $h1-margin-top-and-bottom 0;
   overflow: hidden;
 
+  .gallery-image-subset{
+    width: 100%;
+    float: left;
+
+    .image-subset-header{
+      display: block;
+      font-family: $image-subset-font;
+      font-size: $image-subset-font-size;
+    }
+
+    .image-subset-body{
+
+    }
+  }
+
   /* Default -> 4 tiles */
   .gallery-image-container{
     width: 25%;

@@ -5,7 +5,7 @@ export default class Image extends React.Component{
     super(props);
 
     this.openImage = () => {
-      props.selectImage(props.index);
+      props.selectImage(props.index, props.subIndex);
     }
   }
 
