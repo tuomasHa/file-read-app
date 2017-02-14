@@ -24,6 +24,10 @@ $banner-font-name: 'RajdhaniBold';
 $banner-font: $banner-font-name, sans-serif;
 $image-subset-font: $banner-font;
 
+//Z-axis ordering
+$gallery-modal-z: 100;
+$banner-z: add($gallery-modal-z, -1);
+
 //Body
 $body-bg-color: #FFFFFF;
 $body-fg-color: rgba(102, 153, 255, 0.1);

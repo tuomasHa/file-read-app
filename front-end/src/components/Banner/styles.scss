@@ -4,6 +4,7 @@
   left: 0;
   width: 100%;
   height: $banner-height;
+  z-index: $banner-z;
 
   .header-banner-logo{
     position: absolute;;
