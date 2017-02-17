@@ -2,6 +2,7 @@ import React from 'react';
 import Marked from 'marked';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import parsePagePaths from '../../utility/parsePagePaths';
+import generateVideoIframe from '../../utility/generateVideoIframe';
 import Blog from '../Blog';
 import Gallery from '../Gallery';
 require('./style.scss');
@@ -20,7 +21,7 @@ const renderPage = (type, name, template) => {
           dangerouslySetInnerHTML={template}></div>
       }
     default:
-      //Return 'page not found'-component here
+      //TODO: Return 'page not found'-component here
   }
 }
 
@@ -29,6 +30,9 @@ export default class Page extends React.Component{
     super(props);
     this.state = {template: {__html: ''}, pages: []};
     this.firstRenderDone = false;
+
+    //Disable all html tags in the templates
+    Marked.setOptions({sanitize: true});
 
     fetch('pages').then((response) => {
         return response.json();
@@ -49,7 +53,7 @@ export default class Page extends React.Component{
         return response.text();
       }).then((markdown) => {
         this.firstRenderDone = true;
-        this.setState({template: {__html: Marked(markdown)}});
+        this.setState({template: {__html:  generateVideoIframe(Marked(markdown))}});
       });
     }
   }

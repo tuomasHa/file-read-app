@@ -1,6 +1,7 @@
 import React from 'react';
 import Article from './Article';
 import Marked from 'marked';
+import generateVideoIframe from '../../utility/generateVideoIframe';
 require('./style.scss');
 
 const renderArticle = (e, i) =>{
@@ -11,6 +12,9 @@ module.exports = class Blog extends React.Component{
   constructor(props){
     super(props);
     this.state = {articles: []};
+
+    //Disable all html tags in the templates
+    Marked.setOptions({sanitize: true});
 
     fetch('articles').then((response) => {
         return response.json();
@@ -41,7 +45,7 @@ module.exports = class Blog extends React.Component{
             fetch(e.path).then((response) => {
               return response.text();
             }).then((markdown) => {
-              e.content = {__html: Marked(markdown)};
+              e.content = {__html: generateVideoIframe(Marked(markdown))};
               resolve();
             });
           });
