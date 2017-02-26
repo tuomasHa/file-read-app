@@ -16,6 +16,8 @@ Pages are ordered alpabetically by their template name in the navigation. The fo
 The application reads JPEG (.jpg), PNG (.png) and GIF (.gif) files from the [`files/img`](files/img/)-folder. Templates for articles and subpages should be written in [Markdown](https://guides.github.com/features/mastering-markdown/) syntax and placed in [`files/articles`](files/articles/) and [`files/pages`](files/pages/).
 ## Other customisation
 ### Page title and banner text
-You can set the document's title and the banner text by editing [`files/config.json`](files/config.json). The page title is set by the title-property and it defaults to "App". The banner text is set by the banner-property.
+You can set the document's title and the banner text by editing [`files/config/config.json`](files/config/config.json). The page title is set by the title-property and it defaults to "App". The banner text is set by the banner-property.
 ### Banner logo
-You can customize the banner logo by replacing [`files/logo.png`](files/logo.png/).
+You can customize the banner logo by replacing [`files/config/logo.png`](files/config/logo.png/).
+### App colors
+You can customize the colors of the page by setting Sass variables in [`files/config/colors.scss`](files/config/colors.scss). After changes you need to rebuild the style bundle by running `npm run build` in the root directory.

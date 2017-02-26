@@ -1,0 +1,20 @@
+/*
+Set theme color variables in this file. The variables correspond to following colors:
+$color-1 - Background color for the navigation
+$color-2 - Banner background color (on the right side)
+$color-3 - Background color for the main page and font color for the navigation-font
+$color-4 - Border color for the image modal and the blog articles
+$logo-bg-color - Background color of the logo (used with fading the logo to banner background)
+
+Usage:
+[variable-name]: [HTML color code];
+Example:
+$color-1: #C0FFEE;
+
+Default values (leave variable unset):
+$color-1: #003399
+$color-2: #6699FF
+$color-3: #FFFFFF
+$color-4: #3366CC
+$logo-bg-color: #CCCCCC
+*/

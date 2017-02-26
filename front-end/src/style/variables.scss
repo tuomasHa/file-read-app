@@ -1,17 +1,9 @@
-/*
-Color palette:
-#003399 rgb(0, 51, 153)
-#6699FF rgb(102, 153, 255)
-#FFFFFF rgb(255, 255, 255)
-#3366CC rgb(51, 102, 204)
-Color combo can be found here:
-http://www.colorcombos.com/color-schemes/23/ColorCombo23.html
-*/
+@import './colors.scss';
 
 //Paths
 $image-path: 'res/img/';
 $font-path: '/fonts/';
-$logo-path: 'logo.png';
+$logo-path: 'config/logo.png';
 
 //Fonts
 $navigation-font-file-path: $font-path + 'rajdhani/Rajdhani-Medium.ttf';
@@ -36,18 +28,18 @@ $gallery-modal-z: 100;
 $banner-z: add($gallery-modal-z, -1);
 
 //Body
-$body-bg-color: #FFFFFF;
+$body-bg-color: $color-3;
 $body-fg-color: rgba(102, 153, 255, 0.1);
 
 //Banner
 $banner-height: 120px;
 $banner-image-width: 120px;
-$banner-color-1: #CCCCCC; //should match logo
-$banner-color-2: #6699FF;
+$banner-color-1: $logo-bg-color; //should match logo
+$banner-color-2: $color-2;
 
 //Navigation
-$navigation-bg-color: #003399;
-$navigation-font-color: #FFFFFF;
+$navigation-bg-color: $color-1;
+$navigation-font-color: $color-3;
 $navigation-height: 50px;
 $navigation-font-size: $font-size-small;
 $navigation-link-padding-top-and-bottom:
@@ -58,12 +50,12 @@ $navigation-link-padding:
 
 //Modal
 $modal-shadow-color: rgba(0, 0, 0, 0.4);
-$modal-bg-color: #FFFFFF;
-$modal-border-color: #3366CC;
+$modal-bg-color: $color-3;
+$modal-border-color: $color-4;
 
 //Blog
-$blog-bg-color: #FFFFFF;
-$blog-border-color: #3366CC;
+$blog-bg-color: $color-3;
+$blog-border-color: $color-4;
 
 //Gallery
 $image-subset-font-size: $font-size-medium;

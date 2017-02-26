@@ -30,7 +30,7 @@ app.get('/style', function(req, res){
 });
 
 app.get('/config', function(req, res){
-    res.sendFile('files/config.json', {root: __dirname});
+    res.sendFile('files/config/config.json', {root: __dirname});
 });
 
 app.get('/res/:folder/:file', function(req, res){

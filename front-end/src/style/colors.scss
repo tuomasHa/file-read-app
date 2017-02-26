@@ -1,0 +1,16 @@
+/*
+Default color palette:
+#003399 rgb(0, 51, 153)
+#6699FF rgb(102, 153, 255)
+#FFFFFF rgb(255, 255, 255)
+#3366CC rgb(51, 102, 204)
+*/
+
+@import '../../../files/config/colors.scss'; //import user defined colors
+
+//Default colors (will not overwrite user defined colors)
+$color-1: #003399 !default;
+$color-2: #6699FF !default;
+$color-3: #FFFFFF !default;
+$color-4: #3366CC !default;
+$logo-bg-color: #CCCCCC !default; //should match logo
