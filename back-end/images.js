@@ -2,30 +2,22 @@ var dirTree = require('directory-tree'),
 Watcher = require('./watcher'),
 fileNameParser = require('./fileNameParser');
 
-var images = {},
-imagesPath = 'img',
-imagesRelPath = './files/' + imagesPath;
-
-let parseImageTree = () =>{
-  let tree = dirTree(imagesRelPath, ['.jpg', '.png', '.gif', '.json']);
-  //descending order, allow subfolders
-  fileNameParser(images, tree, imagesPath, false, true);
-}
-
 (function(){
 
-    module.exports = {
+    module.exports = class Images {
 
-      init: () =>{
-        new Watcher('Images', imagesRelPath, parseImageTree);
-      },
+      constructor() {
+        this.images = {};
+        this.imagesPath = 'img';
+        this.imagesRelPath = './files/' + this.imagesPath;
 
-      updateTree: () =>{
-        parseImageTree();
-      },
+        this.updateTree = () => {
+          let tree = dirTree(this.imagesRelPath, ['.jpg', '.png', '.gif', '.json']);
+          //descending order, allow subfolders
+          fileNameParser(this.images, tree, this.imagesPath, false, true);
+        }
 
-      getImages: () =>{
-        return images;
+        this.watcher = new Watcher('Images', this.imagesRelPath, this.updateTree);
       }
     };
 }());

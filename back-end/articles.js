@@ -2,29 +2,21 @@ var dirTree = require('directory-tree'),
 Watcher = require('./watcher'),
 fileNameParser = require('./fileNameParser');
 
-var articles = {},
-articlesPath = 'articles',
-articlesRelPath = './files/' + articlesPath;
-
-let parseArticleTree = () =>{
-  let tree = dirTree(articlesRelPath, ['.md']);
-  fileNameParser(articles, tree, articlesPath);
-}
-
 (function(){
 
-    module.exports = {
+    module.exports = class Articles {
 
-      init: () =>{
-        new Watcher('Articles', articlesRelPath, parseArticleTree);
-      },
+      constructor() {
+        this.articles = {};
+        this.articlesPath = 'articles';
+        this.articlesRelPath = './files/' + this.articlesPath;
 
-      updateTree: () =>{
-        parseArticleTree();
-      },
+        this.updateTree = () => {
+          let tree = dirTree(this.articlesRelPath, ['.md']);
+          fileNameParser(this.articles, tree, this.articlesPath);
+        }
 
-      getArticles: () =>{
-        return articles;
+        this.watcher = new Watcher('Articles', this.articlesRelPath, this.updateTree);
       }
     };
 }());

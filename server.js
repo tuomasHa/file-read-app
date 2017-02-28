@@ -1,20 +1,20 @@
 var express = require('express');
 
-var images = require('./back-end/images');
-var articles = require('./back-end/articles');
-var pages = require('./back-end/pages');
+var Images = require('./back-end/images'),
+Articles = require('./back-end/articles'),
+Pages = require('./back-end/pages');
 
 var app = express(),
 server, host, port;
 
-images.init();
-articles.init();
-pages.init();
+var images = new Images(),
+articles = new Articles(),
+pages = new Pages();
 
 
 //Express server
 
-//Serve static files from public-folder
+//Serve static files from files-folder
 app.use(express.static('files'));
 
 app.get('/', function(req, res){
@@ -42,15 +42,15 @@ app.get('/fonts/:folder/:file', function(req, res){
 });
 
 app.get('/images', function(req, res){
-    res.send(images.getImages());
+    res.send(images.images);
 });
 
 app.get('/articles', function(req, res){
-    res.send(articles.getArticles());
+    res.send(articles.articles);
 });
 
 app.get('/pages', function(req, res){
-    res.send(pages.getPages());
+    res.send(pages.pages);
 });
 
 server = app.listen(8081, function () {
