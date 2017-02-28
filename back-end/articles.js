@@ -1,6 +1,7 @@
 var dirTree = require('directory-tree'),
 Watcher = require('./watcher'),
-fileNameParser = require('./fileNameParser');
+fileNameParser = require('./fileNameParser'),
+articleLogger = require('./loggers').articleLogger;
 
 (function(){
 
@@ -16,7 +17,8 @@ fileNameParser = require('./fileNameParser');
           fileNameParser(this.articles, tree, this.articlesPath);
         }
 
-        this.watcher = new Watcher('Articles', this.articlesRelPath, this.updateTree);
+        this.watcher = new Watcher('Articles', this.articlesRelPath,
+          this.updateTree, articleLogger);
       }
     };
 }());

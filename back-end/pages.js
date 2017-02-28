@@ -1,6 +1,7 @@
 var dirTree = require('directory-tree'),
 Watcher = require('./watcher'),
-fileNameParser = require('./fileNameParser');
+fileNameParser = require('./fileNameParser'),
+pageLogger = require('./loggers').pageLogger;
 
 (function(){
 
@@ -13,10 +14,12 @@ fileNameParser = require('./fileNameParser');
 
         this.updateTree = () => {
           let tree = dirTree(this.pagesRelPath, ['.md']);
-          fileNameParser(this.pages, tree, this.pagesPath, true); //Ascending order
+          //Ascending order
+          fileNameParser(this.pages, tree, this.pagesPath, true);
         }
 
-        this.watcher = new Watcher('Pages', this.pagesRelPath, this.updateTree);
+        this.watcher = new Watcher('Pages', this.pagesRelPath,
+         this.updateTree, pageLogger);
       }
     };
 }());

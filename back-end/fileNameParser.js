@@ -1,3 +1,5 @@
+var errorLogger = require('./loggers.js').errorLogger;
+
 (function(){
   let parseFileNames = (folder, tree, path, asc, allowSubfolders) => {
     if(tree && tree.name && tree.children && tree.children.length){
@@ -25,7 +27,7 @@
       });
     }
     else{
-      console.log('Error: Folder ' + path + ' missing!')
+      errorLogger.warn('Folder %s missing', path);
       return;
     }
   };
