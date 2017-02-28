@@ -1,6 +1,6 @@
 (function(){
   let parseFileNames = (folder, tree, path, asc, allowSubfolders) => {
-    if(tree.name && tree.children && tree.children.length){
+    if(tree && tree.name && tree.children && tree.children.length){
       //add new folder
       folder.name = tree.name;
       folder.path = path;
@@ -23,9 +23,9 @@
         if(x < y) return asc ? -1 : 1;
         return 0;
       });
-      console.log(folder)
     }
     else{
+      console.log('Error: Folder ' + path + ' missing!')
       return;
     }
   };
