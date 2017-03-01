@@ -1,4 +1,6 @@
 {
   "title": "My CDA",
-  "banner": "Banner text"
+  "banner": "Banner text",
+  "blogTitle": "Blog",
+  "galleryTitle": "Gallery"
 }

@@ -28,8 +28,8 @@ export default class Navigation extends React.Component{
   render(){
     return <ul className='navigation'>
         { this.state.pages.map((e, i) => renderLink(e, i)) }
-        <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/gallery'>Gallery</Link></li>
+        <li><Link to='/blog'>{this.props.blogTitle}</Link></li>
+        <li><Link to='/gallery'>{this.props.galleryTitle}</Link></li>
       </ul>;
   }
 }

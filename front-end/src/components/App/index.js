@@ -17,7 +17,9 @@ module.exports = class App extends React.Component{
         if(config) {
           let bannerText = config.banner || '';
           let title = config.title ||'App';
-          this.setState({bannerText, title});
+          let blogTitle = config.blogTitle || 'Blog';
+          let galleryTitle = config.galleryTitle || 'Gallery';
+          this.setState({bannerText, title, blogTitle, galleryTitle});
         }
       });
   }
@@ -29,7 +31,8 @@ module.exports = class App extends React.Component{
   render() {
     return <div className='app'>
       <Banner text={this.state.bannerText} />
-      <Navigation />
+      <Navigation blogTitle={this.state.blogTitle}
+      galleryTitle={this.state.galleryTitle} />
       {this.props.children}
     </div>;
   }
