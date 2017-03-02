@@ -26,3 +26,21 @@
     }
   }
 }
+
+
+/* Small desktop, tablet and mobile */
+@media only screen and (max-width: 1050px){
+
+  .navigation{
+    height: $navigation-small-height;
+    font-size: $navigation-small-font-size;
+
+    li{
+
+      a{
+        height: $navigation-small-height;
+        padding: $navigation-small-link-padding;
+      }
+    }
+  }
+}

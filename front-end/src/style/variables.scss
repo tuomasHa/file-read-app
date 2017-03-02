@@ -41,12 +41,18 @@ $banner-color-2: $color-2;
 $navigation-bg-color: $color-1;
 $navigation-font-color: $color-3;
 $navigation-height: 50px;
+$navigation-small-height: 70px;
 $navigation-font-size: $font-size-small;
+$navigation-small-font-size: $navigation-font-size + 10px;
 $navigation-link-padding-top-and-bottom:
   ($navigation-height - $navigation-font-size) / 2;
+$navigation-small-link-padding-top-and-bottom:
+  ($navigation-small-height - $navigation-small-font-size) / 2;
 $navigation-link-padding-left-and-right: $margin-small;
 $navigation-link-padding:
   $navigation-link-padding-top-and-bottom $navigation-link-padding-left-and-right;
+$navigation-small-link-padding:
+  $navigation-small-link-padding-top-and-bottom $navigation-link-padding-left-and-right;
 
 //Modal
 $modal-shadow-color: rgba(0, 0, 0, 0.4);

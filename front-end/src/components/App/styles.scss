@@ -7,3 +7,14 @@
     padding-top: $banner-height + $navigation-height;
   }
 }
+
+/* Small desktop, tablet and mobile */
+@media only screen and (max-width: 1050px){
+
+  .app-frame{
+
+    .app{
+      padding-top: $banner-height + $navigation-small-height;
+    }
+  }
+}
