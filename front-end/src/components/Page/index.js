@@ -5,16 +5,19 @@ import parsePagePaths from '../../utility/parsePagePaths';
 import generateVideoIframe from '../../utility/generateVideoIframe';
 import Blog from '../Blog';
 import Gallery from '../Gallery';
+import ArticlePage from '../ArticlePage';
 require('./style.scss');
 
 const renderPage = (type, name, template) => {
   switch(type){
     case 'blog':
       return <Blog key='blog'/>
-      break;
     case 'gallery':
       return <Gallery key='gallery'/>
-      break;
+    case 'article':
+      if(name && typeof name === 'string') {
+        return <ArticlePage key={'article-' + name} name={name}/>
+      }
     case 'page':
       if(name && typeof name === 'string'){
         return <div key={'page-' + name} className='page-container'
@@ -34,12 +37,14 @@ export default class Page extends React.Component{
     //Disable all html tags in the templates
     Marked.setOptions({sanitize: true});
 
-    fetch('pages').then((response) => {
-        return response.json();
-      }).then((obj) => {
-        let pages = parsePagePaths(obj);
-        this.setState({pages: pages});
-      });
+    if(props.params.type === 'page'){
+      fetch('pages').then((response) => {
+          return response.json();
+        }).then((obj) => {
+          let pages = parsePagePaths(obj);
+          this.setState({pages: pages});
+        });
+    }
   }
 
   componentWillUpdate(nextProps, nextState){
