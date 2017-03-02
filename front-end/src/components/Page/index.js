@@ -45,16 +45,22 @@ export default class Page extends React.Component{
   componentWillUpdate(nextProps, nextState){
     if(nextState.pages.length && nextProps.params.name &&
       (!this.firstRenderDone ||
-      nextProps.params.name !== this.props.params.name)){
-      let page = nextState.pages.find((e) => {
-        return e.name === nextProps.params.name;
+      nextProps.params.name !== this.props.params.name)) {
+      let page;
+      nextState.pages.forEach((e) => {
+        if(e.name === nextProps.params.name) {
+          page = e;
+        }
       });
-      fetch(page.path).then((response) => {
-        return response.text();
-      }).then((markdown) => {
-        this.firstRenderDone = true;
-        this.setState({template: {__html:  generateVideoIframe(Marked(markdown))}});
-      });
+      if(page && page.path) {
+        fetch(page.path).then((response) => {
+          return response.text();
+        }).then((markdown) => {
+          this.firstRenderDone = true;
+          this.setState({template: {__html:  generateVideoIframe(Marked(markdown))}});
+        });
+      }
+      //TODO: else show 'page not found'
     }
   }
 
