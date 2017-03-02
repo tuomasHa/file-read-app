@@ -37,14 +37,12 @@ export default class Page extends React.Component{
     //Disable all html tags in the templates
     Marked.setOptions({sanitize: true});
 
-    if(props.params.type === 'page'){
-      fetch('pages').then((response) => {
-          return response.json();
-        }).then((obj) => {
-          let pages = parsePagePaths(obj);
-          this.setState({pages: pages});
-        });
-    }
+    fetch('pages').then((response) => {
+        return response.json();
+      }).then((obj) => {
+        let pages = parsePagePaths(obj);
+        this.setState({pages: pages});
+      });
   }
 
   componentWillUpdate(nextProps, nextState){
