@@ -4,14 +4,18 @@ import Marked from 'marked';
 import generateVideoIframe from '../../utility/generateVideoIframe';
 require('./style.scss');
 
-const renderArticle = (e, i) =>{
-  return <Article index={i} article={e} key={`article-${i}`}/>;
+const renderArticle = (e, i, linkText) =>{
+  return <Article index={i} article={e} linkText={linkText}
+    key={`article-${i}`}/>;
 }
 
 module.exports = class Blog extends React.Component{
   constructor(props){
     super(props);
-    this.state = {articles: []};
+    this.state = {
+      articles: [],
+      linkText: 'Open'
+    };
 
     //Disable all html tags in the templates
     Marked.setOptions({sanitize: true});
@@ -21,11 +25,21 @@ module.exports = class Blog extends React.Component{
       }).then((obj) => {
         this.parseArticlePaths(obj);
       });
+
+      fetch('config').then((response) => {
+          return response.ok ? response.json() : {};
+        }).then((config) => {
+          if(config) {
+            let linkText = config.blogLinkText || 'Open';
+            this.setState({linkText});
+          }
+        });
   }
 
   render(){
     return <div className='blog'>
-        { this.state.articles.map((e, i) => renderArticle(e, i)) }
+        { this.state.articles.map((e, i) =>
+            renderArticle(e, i, this.state.linkText)) }
       </div>;
   }
 

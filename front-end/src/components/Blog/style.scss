@@ -2,8 +2,9 @@
   margin: $h1-margin-top-and-bottom 0;
 
   .blog-article{
+    position: relative;
     background-color: $blog-bg-color;
-    padding: 10px 0;
+    padding: 20px 0 10px;
     border-bottom: 1px solid $blog-border-color;
     -webkit-border-image: -webkit-linear-gradient(left, transparent, $blog-border-color, transparent) 100% 1;
     -moz-border-image: -moz-linear-gradient(left, transparent, $blog-border-color, transparent) 100% 1;
@@ -17,6 +18,13 @@
     &:last-child{
       padding-bottom: 0;
       border-bottom: 0;
+    }
+
+    .blog-article-link{
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px 0 0;
     }
   }
 }
