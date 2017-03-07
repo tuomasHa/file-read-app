@@ -8,8 +8,12 @@ module.exports = class App extends React.Component{
     super(props);
     this.state = {
       bannerText: '',
-      title: 'App'
+      title: 'App',
+      blogTitle: 'Blog',
+      galleryTitle: 'Gallery'
     }
+
+    document.title = this.state.title;
 
     fetch('config').then((response) => {
         return response.ok ? response.json() : {};
