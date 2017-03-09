@@ -26,6 +26,7 @@
     padding-left: $banner-image-width + 80px;
     font-size: $banner-height - 50px;
     font-family: $banner-font;
+    color: $banner-font-color;
     background-image:
     -webkit-linear-gradient(right, $banner-color-1, $banner-color-1,
      $banner-color-2, $banner-color-2, $banner-color-2);
