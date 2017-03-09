@@ -8,15 +8,15 @@ import Gallery from '../Gallery';
 import ArticlePage from '../ArticlePage';
 require('./style.scss');
 
-const renderPage = (type, name, template) => {
+const renderPage = (type, name, template, hide) => {
   switch(type){
     case 'blog':
-      return <Blog key='blog'/>
+      return hide.blog ? '' : <Blog key='blog'/>;
     case 'gallery':
-      return <Gallery key='gallery'/>
+      return hide.gallery ? '' : <Gallery key='gallery'/>;
     case 'article':
       if(name && typeof name === 'string') {
-        return <ArticlePage key={'article-' + name} name={name}/>
+        return hide.blog ? '' : <ArticlePage key={'article-' + name} name={name}/>;
       }
     case 'page':
       if(name && typeof name === 'string'){
@@ -74,7 +74,7 @@ export default class Page extends React.Component{
     transitionLeaveTimeout={300}
     className='page-animation-container'>
       {renderPage(this.props.params.type, this.props.params.name,
-         this.state.template)}
+         this.state.template, this.props.hide)}
     </ReactCSSTransitionGroup>;
   }
 }

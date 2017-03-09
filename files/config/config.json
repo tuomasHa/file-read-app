@@ -2,5 +2,7 @@
   "title": "My CDA",
   "banner": "Banner text",
   "blogTitle": "Blog",
-  "galleryTitle": "Gallery"
+  "galleryTitle": "Gallery",
+  "hideBlog": false,
+  "hideGallery": false
 }
