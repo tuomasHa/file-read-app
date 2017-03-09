@@ -3,6 +3,7 @@
   "banner": "Banner text",
   "blogTitle": "Blog",
   "galleryTitle": "Gallery",
+  "blogLinkText": "Show",
   "hideBlog": false,
   "hideGallery": false
 }
