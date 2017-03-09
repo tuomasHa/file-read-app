@@ -14,13 +14,26 @@ You can also add a subfolder in the [`files/img`](files/img/)-folder with the sa
 Pages are ordered alpabetically by their template name in the navigation. The following format is recommended for naming these files: `[ordering index]-[page name].md`. The page with the lowest ordering index will appear in the navigation first. The page name will appear capitalized in the navigation.
 ### File formats
 The application reads JPEG (.jpg), PNG (.png) and GIF (.gif) files from the [`files/img`](files/img/)-folder. Templates for articles and subpages should be written in [Markdown](https://guides.github.com/features/mastering-markdown/) syntax and placed in [`files/articles`](files/articles/) and [`files/pages`](files/pages/).
-## Other configuration
+## Configuration with config.json
+[`files/config/config.json`](files/config/config.json) is a configuration file that has key-value pairs that accept either string or boolean values. The file's content should follow JSON syntax.
+
+Example content:
+`{
+  "title": "My CDA",
+  "banner": "Banner text",
+  "blogTitle": "Blog",
+  "galleryTitle": "Gallery",
+  "blogLinkText": "Show",
+  "hideBlog": false,
+  "hideGallery": true
+}`
 ### Page title and banner text
-You can set the document's title and the banner text by editing [`files/config/config.json`](files/config/config.json). The page title is configured by setting a string value to the `title`-key. The banner text is configured by setting a string value to the `banner`-key.
+You can set the document's title and the banner text by editing [`config.json`](files/config/config.json). The page title is configured by setting a string value to the `title`-key. The banner text is configured by setting a string value to the `banner`-key.
 ### Blog and gallery
-You can configure blog and gallery by editing [`files/config/config.json`](files/config/config.json). The blog's link text in the navigation can be chosen by setting a string value to the `blogTitle`-key. The blog view and link can be hidden by setting the `hideBlog`-key's value to `true` (boolean). The gallery can be similarly configured by editing keys `galleryTitle` and `hideGallery`, respectively.
+You can configure blog and gallery by editing [`config.json`](files/config/config.json). The blog's link text in the navigation can be chosen by setting a string value to the `blogTitle`-key. The blog view and link can be hidden by setting the `hideBlog`-key's value to `true` (boolean). The gallery can be similarly configured by editing keys `galleryTitle` and `hideGallery`, respectively.
 ### Blog articles
-Blog articles can also be configured by editing [`files/config/config.json`](files/config/config.json). Hiding the blog with `hideBlog`-key will also disable the article view. You can also set the text for the links that open an article in blog view by setting a string value to the `blogLinkText`-key.
+Blog articles can also be configured by editing [`config.json`](files/config/config.json). Hiding the blog with `hideBlog`-key will also disable the article view. You can also set the text for the links that open an article in blog view by setting a string value to the `blogLinkText`-key.
+## Other configuration
 ### Banner logo
 You can customize the banner logo by replacing [`files/config/logo.png`](files/config/logo.png/).
 ### App colors
